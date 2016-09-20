@@ -1,7 +1,7 @@
 # Project Name - CAM.IO #
 
 ## HEADING ##
-  > Crowdsourcing Your Event Promotion.
+  > 
 
 ## SUB-HEADING ##
   > 
