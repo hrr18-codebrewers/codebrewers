@@ -13,7 +13,7 @@
   "author": "Code Brewers",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhyang813/codebrewers/issues"
+    "url": "https://github.com/hrr18-codebrewers/codebrewers/issues"
   },
   "devDependencies": {
     "webpack": "^1.13.2"
