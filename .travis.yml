@@ -1,0 +1,22 @@
+deploy:
+- provider: s3
+  access_key_id: AKIAJRDJIKGDUERK5DYA
+  secret_access_key: &1
+    secure: p4t9teEMskztU+aocun43R0EbAhb9/n6A7t/2DHmgeYfmtSCo8Bu7ZarkjeATSEaUZJs4kLVhSpFovxy13B0JwXTeggGUL1KsaejViV+fo5hHwvskgawbj65QMvFxpttIttpF6GjWtVtYq5axv01/crXxh/e9l2GIC51TLN8obzuGl2DI5phoFkI1aCVrbK24vmcx7+ZdvKdL01KMV3l1BSmsYA24mWZRSIu4vQN1s566jhr48I9xZK55siqyLik6N2s+chlTY7yInjgiXrUiNHNTdCsuFscoWdiLNLLm14SCQBHGVsjtEaSezuD6H9teVIaKLwYhLv/ElWM2IEkmKJ8rLsGUdL9YxyNHQa88r/n7fRzAAaBGqIjnY0HcgWSOAW1UAwpgpfGl9Ky351vVbGUYHRHxmVubWTgnrOqP+bLrvgFzLPYvNz2f/lripbMpa4hsdm5MD8hrykaD3aIIFmJg6SWqX2WSKxMhZDwT8/RXxEf98VoZHnGW8P1j26lqSg+wez0CU4cQqwI443hXUck1AnqSBJvefX+N51DmMQo0Rzj5KTVtzOV0V8vrUzlVU19Ct887xmc6+mSUJ/2Z2mzs50tjuMC7zd4UVL2AzvDtEE1cDK4mTq3aGL1BKSNKvtAcj58w55iFrLzmuZAZrV0i2fzxwwJ1/sUqpGQM+o=
+  local_dir: dpl_cd_upload
+  skip_cleanup: true
+  on:
+  bucket: brewerbucket
+- provider: codedeploy
+  access_key_id: AKIAJRDJIKGDUERK5DYA
+  secret_access_key: *1
+  bucket: brewerbucket
+  key: latest.zip
+  bundle_type: zip
+  application: codebrewers
+  deployment_group: master
+  on:
+    branch: master
+before_deploy:
+- mkdir -p dpl_cd_upload
+- mv / dpl_cd_upload/latest.zip
