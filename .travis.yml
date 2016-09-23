@@ -1,16 +1,17 @@
 language: node_js
 node_js:
-  - "6"
+- '6'
 services:
-  - mongodb
+- mongodb
 deploy:
 - provider: s3
   access_key_id: AKIAJRDJIKGDUERK5DYA
   secret_access_key: &1
-    secure: p4t9teEMskztU+aocun43R0EbAhb9/n6A7t/2DHmgeYfmtSCo8Bu7ZarkjeATSEaUZJs4kLVhSpFovxy13B0JwXTeggGUL1KsaejViV+fo5hHwvskgawbj65QMvFxpttIttpF6GjWtVtYq5axv01/crXxh/e9l2GIC51TLN8obzuGl2DI5phoFkI1aCVrbK24vmcx7+ZdvKdL01KMV3l1BSmsYA24mWZRSIu4vQN1s566jhr48I9xZK55siqyLik6N2s+chlTY7yInjgiXrUiNHNTdCsuFscoWdiLNLLm14SCQBHGVsjtEaSezuD6H9teVIaKLwYhLv/ElWM2IEkmKJ8rLsGUdL9YxyNHQa88r/n7fRzAAaBGqIjnY0HcgWSOAW1UAwpgpfGl9Ky351vVbGUYHRHxmVubWTgnrOqP+bLrvgFzLPYvNz2f/lripbMpa4hsdm5MD8hrykaD3aIIFmJg6SWqX2WSKxMhZDwT8/RXxEf98VoZHnGW8P1j26lqSg+wez0CU4cQqwI443hXUck1AnqSBJvefX+N51DmMQo0Rzj5KTVtzOV0V8vrUzlVU19Ct887xmc6+mSUJ/2Z2mzs50tjuMC7zd4UVL2AzvDtEE1cDK4mTq3aGL1BKSNKvtAcj58w55iFrLzmuZAZrV0i2fzxwwJ1/sUqpGQM+o=
+    secure: CmHR/qqrs29q3+1QpxrMeFf+qCPK37WNQB6NfvBwh07/Tz+fGyk0thvYVy8ho6vIsj/gSoAv+U7qyt6/TXjbHxC5hF5/p2kfDyxgRz22pKWd8GpXVS0OX3rQ1yXHvQ5ARnu6vbJKtd7Pe3Xp/4PQ2ZyDLklmiz+IGD4yOe5/qfD0nwnnBAoW+BFJky22Sqo2o9CE2FTcJMr5Z04yY0cGTpwAfwr1BQwHik0epv7KNhE5kY+xfj049zEjktr2duzPuUgZ0oT3wYDKApv2tAhl2jUv7HpmXudoHQDgL5SpGEf8AmDAzpqCf7dIWDd8oLw0/NRziVmg/uvVeOqCsHyr/G5oAZeWAUy22Rq2/p6+Fj7gyN3/sdxx5u+LGRM99Id59MDk/uZPcLkuPmnvi0FnqXgzbo0QCRSuDR/o+m0FogQFmhclMgWGU3gh+a45fRpv4BH/DuHNuT4qYALNkOeGA9W7bLepJM+wkq2jQfdGHEgop/r4uL59rudn90bSjdrrWwwRKBeAfKOI20ZCim0CQaCIrro+CauspplkpWXBtVA4w0gXLSA5DOLAUQyIeM5cLD5T+79JlfvnZ+5db2X3nqZH/7CzPzSqrXlNwsZ0c2dU4Srs6MmC7yJBrH5S9oq3vlvWqdHLmfZUV+m2/DQ0Y4HUHa2f57Lk3ffPbRiJefI=
   local_dir: dpl_cd_upload
   skip_cleanup: true
-  on:
+  on: &2
+    repo: hrr18-codebrewers/codebrewers
   bucket: brewerbucket
 - provider: codedeploy
   access_key_id: AKIAJRDJIKGDUERK5DYA
@@ -20,8 +21,8 @@ deploy:
   bundle_type: zip
   application: codebrewers
   deployment_group: master
-  on:
-    branch: master
+  region: us-west-2
+  on: *2
 before_deploy:
 - zip -r latest *
 - mkdir -p dpl_cd_upload
