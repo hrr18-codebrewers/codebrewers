@@ -4,7 +4,6 @@
   "description": "Events Search Engine",
   "main": "index.js",
   "scripts": {
-    // "test": "placeholder"
   },
   "repository": {
     "type": "git",
