@@ -5,16 +5,15 @@ services:
 - mongodb
 deploy:
 - provider: s3
-  access_key_id: AKIAJRDJIKGDUERK5DYA
-  secret_access_key: &1
-    secure: CmHR/qqrs29q3+1QpxrMeFf+qCPK37WNQB6NfvBwh07/Tz+fGyk0thvYVy8ho6vIsj/gSoAv+U7qyt6/TXjbHxC5hF5/p2kfDyxgRz22pKWd8GpXVS0OX3rQ1yXHvQ5ARnu6vbJKtd7Pe3Xp/4PQ2ZyDLklmiz+IGD4yOe5/qfD0nwnnBAoW+BFJky22Sqo2o9CE2FTcJMr5Z04yY0cGTpwAfwr1BQwHik0epv7KNhE5kY+xfj049zEjktr2duzPuUgZ0oT3wYDKApv2tAhl2jUv7HpmXudoHQDgL5SpGEf8AmDAzpqCf7dIWDd8oLw0/NRziVmg/uvVeOqCsHyr/G5oAZeWAUy22Rq2/p6+Fj7gyN3/sdxx5u+LGRM99Id59MDk/uZPcLkuPmnvi0FnqXgzbo0QCRSuDR/o+m0FogQFmhclMgWGU3gh+a45fRpv4BH/DuHNuT4qYALNkOeGA9W7bLepJM+wkq2jQfdGHEgop/r4uL59rudn90bSjdrrWwwRKBeAfKOI20ZCim0CQaCIrro+CauspplkpWXBtVA4w0gXLSA5DOLAUQyIeM5cLD5T+79JlfvnZ+5db2X3nqZH/7CzPzSqrXlNwsZ0c2dU4Srs6MmC7yJBrH5S9oq3vlvWqdHLmfZUV+m2/DQ0Y4HUHa2f57Lk3ffPbRiJefI=
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
   local_dir: dpl_cd_upload
   skip_cleanup: true
   bucket: brewersbucket
   region: us-west-1
 - provider: codedeploy
-  access_key_id: AKIAJRDJIKGDUERK5DYA
-  secret_access_key: *1
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
   bucket: brewersbucket
   key: latest.zip
   bundle_type: zip
