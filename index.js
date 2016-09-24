@@ -18,6 +18,7 @@ app.listen(port);
 
 console.log("Server is listening on port " + port);
 
+
 //Ticket Master data fetcher
 //setInterval(worker.fetchTM, 10000);
 worker.fetchTM();
