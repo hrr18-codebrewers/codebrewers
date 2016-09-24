@@ -1,1 +1,0 @@
-var Event = require('.././events/eventHandler.js');
