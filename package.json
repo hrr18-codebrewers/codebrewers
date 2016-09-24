@@ -65,15 +65,7 @@
     "@angular/router": "3.0.0",
     "core-js": "^2.4.1",
     "rxjs": "5.0.0-beta.12",
-<<<<<<< 4f9d61a9889fb8b367143fa972c3ba324a91dd2f
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.6.23"
-=======
-    "systemjs": "0.19.27",
-    "zone.js": "^0.6.23",
-    "angular2-in-memory-web-api": "0.0.20",
-    "bootstrap": "^3.3.6",
-    "cron": "^1.1.0"
->>>>>>> Added DB model
   }
 }

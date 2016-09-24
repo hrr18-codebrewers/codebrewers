@@ -14,9 +14,11 @@ module.exports = {
         res.json(event);
       }
     });
+  },
+
+  cronTest: function() {
+    console.log('Handler cron job is running');
   }
-
-
 
 
 }
